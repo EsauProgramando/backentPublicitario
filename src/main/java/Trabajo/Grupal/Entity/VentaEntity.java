@@ -21,6 +21,10 @@ public class VentaEntity {
     @JoinColumn(name = "IdUsuario")
     private UsuarioEntity usuario;
     
+    @ManyToOne
+    @JoinColumn(name = "IdDistrito")
+    private DistritoEntity distrito;
+    
     private String tipoVenta;
     private String tipoComprobante;
     private Date fechaHora;
@@ -82,11 +86,22 @@ public class VentaEntity {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    
 
-    @Override
-    public String toString() {
-        return "VentaEntity [idVenta=" + idVenta + ", usuario=" + usuario + ", tipoVenta=" + tipoVenta
-                + ", tipoComprobante=" + tipoComprobante + ", fechaHora=" + fechaHora + ", total=" + total
-                + ", estado=" + estado + "]";
-    }
+    public DistritoEntity getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(DistritoEntity distrito) {
+		this.distrito = distrito;
+	}
+
+	@Override
+	public String toString() {
+		return "VentaEntity [idVenta=" + idVenta + ", usuario=" + usuario + ", distrito=" + distrito + ", tipoVenta="
+				+ tipoVenta + ", tipoComprobante=" + tipoComprobante + ", fechaHora=" + fechaHora + ", total=" + total
+				+ ", estado=" + estado + "]";
+	}
+
+	
 }

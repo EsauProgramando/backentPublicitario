@@ -21,6 +21,10 @@ public class DetalleVentaEntity {
     @JoinColumn(name = "IdVenta")
     private VentaEntity venta;
     
+    @ManyToOne
+    @JoinColumn(name = "IdProducto")
+    private ProductoEntity producto;
+    
     private int cantidad;
     private BigDecimal precio;
     private String estado;
@@ -64,10 +68,21 @@ public class DetalleVentaEntity {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    
+    
+    public ProductoEntity getProducto() {
+		return producto;
+	}
 
-    @Override
-    public String toString() {
-        return "DetalleVentaEntity [id=" + id + ", venta=" + venta + ", cantidad=" + cantidad + ", precio=" + precio
-                + ", estado=" + estado + "]";
-    }
+	public void setProducto(ProductoEntity producto) {
+		this.producto = producto;
+	}
+
+	@Override
+	public String toString() {
+		return "DetalleVentaEntity [id=" + id + ", venta=" + venta + ", producto=" + producto + ", cantidad=" + cantidad
+				+ ", precio=" + precio + ", estado=" + estado + "]";
+	}
+
+	
 }
