@@ -26,6 +26,10 @@ public class UsuarioEntity {
     @JoinColumn(name = "IdPerfil")
     private PerfilEntity perfil;
 
+    @ManyToOne
+    @JoinColumn(name = "IdSucursal")
+    private SucursalEntity sucursal;
+    
     private String estado;
 
     public int getIdUsuario() {
@@ -108,10 +112,21 @@ public class UsuarioEntity {
         this.estado = estado;
     }
 
-    @Override
-    public String toString() {
-        return "UsuarioEntity [idUsuario=" + idUsuario + ", nombre=" + nombre + ", apellido=" + apellido + ", correo="
-                + correo + ", contrasena=" + contrasena + ", DNI=" + DNI + ", celular=" + celular + ", direccion="
-                + direccion + ", perfil=" + perfil + ", estado=" + estado + "]";
-    }
+    
+    public SucursalEntity getSucursal() {
+		return sucursal;
+	}
+
+	public void setSucursal(SucursalEntity sucursal) {
+		this.sucursal = sucursal;
+	}
+
+	@Override
+	public String toString() {
+		return "UsuarioEntity [idUsuario=" + idUsuario + ", nombre=" + nombre + ", apellido=" + apellido + ", correo="
+				+ correo + ", contrasena=" + contrasena + ", DNI=" + DNI + ", celular=" + celular + ", direccion="
+				+ direccion + ", perfil=" + perfil + ", sucursal=" + sucursal + ", estado=" + estado + "]";
+	}
+
+	
 }

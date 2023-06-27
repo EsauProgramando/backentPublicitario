@@ -26,6 +26,10 @@ public class CompraEntity {
     @JoinColumn(name = "IdUsuario")
     private UsuarioEntity usuario;
     
+    @ManyToOne
+    @JoinColumn(name = "IdDistrito")
+    private DistritoEntity distrito;
+    
     private String estado;
 
     public int getIdCompra() {
@@ -76,9 +80,11 @@ public class CompraEntity {
         this.estado = estado;
     }
 
-    @Override
-    public String toString() {
-        return "CompraEntity [idCompra=" + idCompra + ", descripcion=" + descripcion + ", total=" + total + ", fecha="
-                + fecha + ", usuario=" + usuario + ", estado=" + estado + "]";
-    }
+	@Override
+	public String toString() {
+		return "CompraEntity [idCompra=" + idCompra + ", descripcion=" + descripcion + ", total=" + total + ", fecha="
+				+ fecha + ", usuario=" + usuario + ", distrito=" + distrito + ", estado=" + estado + "]";
+	}
+
+    
 }
