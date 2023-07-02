@@ -19,7 +19,7 @@ import Trabajo.Grupal.Service.IMarcaService;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = "http://localhost")
+@CrossOrigin(origins = "*")
 public class MarcaEntityControllers {
 
     @Autowired

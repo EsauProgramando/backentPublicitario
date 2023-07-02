@@ -12,8 +12,9 @@ public interface IEmpresaService {
 
     void modificar(EmpresaEntity Empresa); // UPDATE
 
-    Optional<EmpresaEntity> buscarId(Integer id); // READ
+   Optional<EmpresaEntity> buscarId(Integer id); // READ
 
+   public EmpresaEntity findById(Integer id);
     void eliminar(Integer id); // DELETE
 }
 

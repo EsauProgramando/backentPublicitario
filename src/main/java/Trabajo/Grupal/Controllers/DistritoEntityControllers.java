@@ -19,7 +19,7 @@ import Trabajo.Grupal.Service.IDistritoService;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = "http://localhost")
+@CrossOrigin(origins = "*")
 public class DistritoEntityControllers {
 
     private final IDistritoService distritoService;

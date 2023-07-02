@@ -13,6 +13,7 @@ public interface IProductoService {
     void modificar(ProductoEntity producto); // UPDATE
 
     Optional<ProductoEntity> buscarId(Integer id); // READ
+    public ProductoEntity findById(Integer id);
 
     void eliminar(Integer id); // DELETE
 }

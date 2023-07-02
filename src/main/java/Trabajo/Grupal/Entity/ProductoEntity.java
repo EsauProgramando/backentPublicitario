@@ -28,6 +28,7 @@ public class ProductoEntity {
 
     private int cantidad;
     private Date fechaCaducidad;
+    private String productoImg;
     private String estado;
 
     public int getIdProducto() {
@@ -86,7 +87,15 @@ public class ProductoEntity {
         this.estado = estado;
     }
 
-    @Override
+    public String getProductoImg() {
+		return productoImg;
+	}
+
+	public void setProductoImg(String productoImg) {
+		this.productoImg = productoImg;
+	}
+
+	@Override
     public String toString() {
         return "ProductoEntity [idProducto=" + idProducto + ", nombres=" + nombres + ", marca=" + marca
                 + ", categoria=" + categoria + ", cantidad=" + cantidad + ", fechaCaducidad=" + fechaCaducidad

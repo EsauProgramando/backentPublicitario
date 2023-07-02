@@ -44,4 +44,10 @@ public class EmpresaEntityJpa implements IEmpresaService {
     public void eliminar(Integer id) {
         empresaRepository.deleteById(id);
     }
+
+	@Override
+	@Transactional(readOnly = true)
+	public EmpresaEntity findById(Integer id) {
+		return empresaRepository.findById(id).orElse(null);
+	}
 }

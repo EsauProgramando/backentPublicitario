@@ -19,7 +19,7 @@ import Trabajo.Grupal.Service.IPerfilService;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = "http://localhost")
+@CrossOrigin(origins = "*")
 public class PerfilEntityControllers {
     @Autowired
     private IPerfilService Perfilservice;
