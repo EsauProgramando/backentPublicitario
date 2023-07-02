@@ -19,7 +19,7 @@ import Trabajo.Grupal.Service.ICategoriaService;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = "http://localhost:8012")
+@CrossOrigin(origins = "http://localhost")
 public class CategoriaEntityControllers {
 
     @Autowired

@@ -13,6 +13,6 @@ public interface IVentaService {
     void modificar(VentaEntity venta); // UPDATE
 
     Optional<VentaEntity> buscarId(Integer id); // READ
-
+   
     void eliminar(Integer id); // DELETE
 }

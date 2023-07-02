@@ -30,7 +30,15 @@ public class CompraEntity {
     @JoinColumn(name = "IdDistrito")
     private DistritoEntity distrito;
     
-    private String estado;
+    public DistritoEntity getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(DistritoEntity distrito) {
+		this.distrito = distrito;
+	}
+
+	private String estado;
 
     public int getIdCompra() {
         return idCompra;
