@@ -22,11 +22,7 @@ public class 	UsuarioEntityJpa implements IUsuarioService {
         return usuarioRepository.findAll();
     }
 
-    @Override
-    @Transactional
-    public void guardar(UsuarioEntity usuario) {
-        usuarioRepository.save(usuario);
-    }
+
 
     @Override
     @Transactional
@@ -44,4 +40,30 @@ public class 	UsuarioEntityJpa implements IUsuarioService {
     public void eliminar(Integer id) {
         usuarioRepository.deleteById(id);
     }
+
+
+
+	@Override
+	@Transactional
+	public UsuarioEntity guardar(UsuarioEntity usuario) {
+		   
+		return usuarioRepository.save(usuario);
+	}
+
+
+
+	@Override
+	@Transactional(readOnly = true)
+	public UsuarioEntity findByUsername(String username) {
+		return usuarioRepository.findByUsername(username);
+	}
+
+
+
+	@Override
+	@Transactional(readOnly = true)
+	public UsuarioEntity findById(Integer id) {
+		// TODO Auto-generated method stub
+		return usuarioRepository.findById(id).orElse(null);
+	}
 }

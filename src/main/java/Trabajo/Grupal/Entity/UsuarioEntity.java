@@ -1,5 +1,6 @@
 package Trabajo.Grupal.Entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "usuario")
@@ -30,6 +32,10 @@ public class UsuarioEntity {
     @JoinColumn(name = "IdSucursal")
     private SucursalEntity sucursal;
     
+	@NotEmpty(message = "no puede estar vacio")
+	@Column(unique = true, length = 20)
+	private String username;
+
     private String estado;
 
     public int getIdUsuario() {
@@ -119,6 +125,37 @@ public class UsuarioEntity {
 
 	public void setSucursal(SucursalEntity sucursal) {
 		this.sucursal = sucursal;
+	}
+
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public UsuarioEntity(String nombre, String apellido, String correo, String contrasena, String dNI, String celular,
+			SucursalEntity sucursal,
+			String username,String direccion, PerfilEntity perfil, String estado) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.correo = correo;
+		this.contrasena = contrasena;
+		DNI = dNI;
+		this.celular = celular;
+		this.direccion = direccion;
+		this.perfil = perfil;
+		this.sucursal = sucursal;
+		this.username = username;
+		this.estado = estado;
+	}
+
+	public UsuarioEntity() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
