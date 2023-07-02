@@ -44,4 +44,10 @@ public class ProductoEntityJpa implements IProductoService {
     public void eliminar(Integer id) {
         productoRepository.deleteById(id);
     }
+
+	@Override
+	@Transactional(readOnly = true)
+	public ProductoEntity findById(Integer id) {
+		return productoRepository.findById(id).orElse(null);
+	}
 }

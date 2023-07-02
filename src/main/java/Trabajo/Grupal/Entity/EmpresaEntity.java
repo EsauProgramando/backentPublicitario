@@ -17,6 +17,7 @@ public class EmpresaEntity {
     private String telefono;
     private String correo;
     private String ruc;
+    private String logo;
     private String estado;
 
     public int getIdEmpresa() {
@@ -75,7 +76,15 @@ public class EmpresaEntity {
         this.estado = estado;
     }
 
-    @Override
+    public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
+	@Override
     public String toString() {
         return "EmpresaEntity [idEmpresa=" + idEmpresa + ", nombre=" + nombre + ", direccion=" + direccion +
                 ", telefono=" + telefono + ", correo=" + correo + ", ruc=" + ruc + ", estado=" + estado + "]";

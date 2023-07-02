@@ -28,7 +28,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = "http://localhost")
+@CrossOrigin(origins = "*")
 public class UsuarioEntityControllers {
 
     @Autowired

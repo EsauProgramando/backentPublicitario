@@ -21,7 +21,7 @@ import Trabajo.Grupal.Service.IProveedorService;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = "http://localhost")
+@CrossOrigin(origins = "*")
 public class ProveedorEntityControllers {
     private final IProveedorService proveedorService;
 

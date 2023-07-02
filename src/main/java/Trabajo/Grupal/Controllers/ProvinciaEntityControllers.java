@@ -11,7 +11,7 @@ import Trabajo.Grupal.Service.IProvinciaService;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = "http://localhost")
+@CrossOrigin(origins = "*")
 public class ProvinciaEntityControllers {
 
     private final IProvinciaService provinciaService;
