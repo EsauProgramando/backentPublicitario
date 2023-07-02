@@ -80,11 +80,20 @@ public class CompraEntity {
         this.estado = estado;
     }
 
+	public DistritoEntity getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(DistritoEntity distrito) {
+		this.distrito = distrito;
+	}
+
 	@Override
 	public String toString() {
 		return "CompraEntity [idCompra=" + idCompra + ", descripcion=" + descripcion + ", total=" + total + ", fecha="
 				+ fecha + ", usuario=" + usuario + ", distrito=" + distrito + ", estado=" + estado + "]";
 	}
 
+	
     
 }

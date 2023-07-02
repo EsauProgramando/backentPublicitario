@@ -1,5 +1,10 @@
 package Trabajo.Grupal.Controllers;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,7 +17,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import Trabajo.Grupal.Entity.ProductoEntity;
 import Trabajo.Grupal.Service.IProductoService;
@@ -31,14 +39,27 @@ public class ProductoEntityControllers {
     }
 
     @PostMapping("/producto")
-    public ProductoEntity guardar(@RequestBody ProductoEntity producto) {
+    public ProductoEntity guardar(@RequestBody ProductoEntity producto,@RequestParam("imageFile") MultipartFile file) throws IOException {
+    	 // Verificar si se seleccionó un archivo
+        if (file.isEmpty()) {
+            // Manejar el caso de archivo no seleccionado
+           Path directorioImg = Paths.get("img");
+           String rutaAbsoluta = directorioImg.toFile().getAbsolutePath();
+           
+           byte[] bytesImg = file.getBytes();
+           Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+file.getOriginalFilename());
+           Files.write(rutaCompleta,bytesImg);
+        }
+
+        producto.setFilePath(file.getOriginalFilename());
         productoService.guardar(producto);
         return producto;
     }
 
     @PutMapping("/producto")
     public ProductoEntity modificar(@RequestBody ProductoEntity producto) {
-        productoService.modificar(producto);
+        
+    	productoService.modificar(producto);
         return producto;
     }
 
@@ -52,4 +73,6 @@ public class ProductoEntityControllers {
         productoService.eliminar(id);
         return "Producto eliminado";
     }
+    
+    
 }

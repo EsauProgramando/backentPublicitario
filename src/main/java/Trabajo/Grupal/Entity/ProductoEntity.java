@@ -29,7 +29,7 @@ public class ProductoEntity {
     private int cantidad;
     private Date fechaCaducidad;
     private String estado;
-
+    private String filePath;
     public int getIdProducto() {
         return idProducto;
     }
@@ -86,10 +86,21 @@ public class ProductoEntity {
         this.estado = estado;
     }
 
-    @Override
-    public String toString() {
-        return "ProductoEntity [idProducto=" + idProducto + ", nombres=" + nombres + ", marca=" + marca
-                + ", categoria=" + categoria + ", cantidad=" + cantidad + ", fechaCaducidad=" + fechaCaducidad
-                + ", estado=" + estado + "]";
-    }
+    
+    public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+	@Override
+	public String toString() {
+		return "ProductoEntity [idProducto=" + idProducto + ", nombres=" + nombres + ", marca=" + marca + ", categoria="
+				+ categoria + ", cantidad=" + cantidad + ", fechaCaducidad=" + fechaCaducidad + ", estado=" + estado
+				+ ", filePath=" + filePath + "]";
+	}
+
+	
 }
