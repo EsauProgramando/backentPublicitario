@@ -30,6 +30,8 @@ public class ProductoEntity {
     private Date fechaCaducidad;
     private String productoImg;
     private String estado;
+    
+    private Double precioProducto;
 
     public int getIdProducto() {
         return idProducto;
@@ -47,7 +49,15 @@ public class ProductoEntity {
         this.nombres = nombres;
     }
 
-    public MarcaEntity getMarca() {
+    public Double getPrecioProducto() {
+		return precioProducto;
+	}
+
+	public void setPrecioProducto(Double precioProducto) {
+		this.precioProducto = precioProducto;
+	}
+
+	public MarcaEntity getMarca() {
         return marca;
     }
 
