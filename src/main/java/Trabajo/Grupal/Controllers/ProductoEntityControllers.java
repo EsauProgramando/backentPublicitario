@@ -42,12 +42,14 @@ public class ProductoEntityControllers {
 
     @PostMapping("/producto")
     public ProductoEntity guardar(@RequestBody ProductoEntity producto) {
+    	
+  
         productoService.guardar(producto);
         return producto;
     }
 
     @PutMapping("/producto")
-    public ProductoEntity modificar(@RequestBody ProductoEntity producto) {
+    public ProductoEntity modificar(@RequestBody ProductoEntity producto) {  	
         productoService.modificar(producto);
         return producto;
     }
